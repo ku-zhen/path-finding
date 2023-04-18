@@ -1,5 +1,5 @@
-#include "header/SquareGridMap.h"
-#include "header/SquareGridMapWithWeight.h"
+#include "headers/SquareGridMap.h"
+#include "headers/SquareGridMapWithWeight.h"
 
 #include "graph_search/breadth_first_search.cpp"
 #include "graph_search/uniform_cost_search.cpp"

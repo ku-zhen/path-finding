@@ -2,8 +2,8 @@
 // Created by ku-zhen on 2023/4/17.
 //
 
-#include "../header/SquareGridMapWithWeight.h"
-#include "../header/Priority_Queue.h"
+#include "../headers/SquareGridMapWithWeight.h"
+#include "../headers/Priority_Queue.h"
 
 /*启发式函数*/
 int heuristic1(Position2D a,Position2D b){

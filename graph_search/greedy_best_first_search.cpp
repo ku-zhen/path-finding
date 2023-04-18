@@ -2,8 +2,8 @@
 // Created by ku-zhen on 2023/4/16.
 //
 
-#include "../header/SquareGridMap.h"
-#include "../header/Priority_Queue.h"
+#include "../headers/SquareGridMap.h"
+#include "../headers/Priority_Queue.h"
 #include <cstdlib>
 
 /*启发式函数*/

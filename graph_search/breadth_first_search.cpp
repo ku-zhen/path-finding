@@ -1,7 +1,7 @@
 //
 // Created by ku-zhen on 2023/4/16.
 //
-#include "../header/SquareGridMap.h"
+#include "../headers/SquareGridMap.h"
 #include <queue>
 
 std::unordered_map<Position2D,Position2D,PositionHash>

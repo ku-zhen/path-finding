@@ -2,7 +2,7 @@
 // Created by ku-zhen on 2023/4/16.
 //
 
-#include "../header/SquareGridMapWithWeight.h"
+#include "../headers/SquareGridMapWithWeight.h"
 #include <iostream>
 #include <algorithm>
 

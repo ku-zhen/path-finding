@@ -2,8 +2,8 @@
 // Created by ku-zhen on 2023/4/16.
 //
 
-#include "../header/SquareGridMapWithWeight.h"
-#include "../header/Priority_Queue.h"
+#include "../headers/SquareGridMapWithWeight.h"
+#include "../headers/Priority_Queue.h"
 
 std::unordered_map<Position2D,Position2D,PositionHash>
 uniform_cost_search(SquareGridMapWithWeight &map,Position2D &start,Position2D& goal){
