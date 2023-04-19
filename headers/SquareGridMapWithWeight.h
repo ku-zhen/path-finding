@@ -25,7 +25,7 @@ public:
         return nodes[Position2D{x,y}]==FOREST;
     }
 
-    void drawWith(Position2D *start = nullptr, Position2D *goal = nullptr, std::unordered_map<Position2D, Position2D, PositionHash> *came_from = nullptr, std::vector<Position2D> *path = nullptr) override;
+    void drawWith(Position2D *start = nullptr, Position2D *goal = nullptr, std::unordered_map<Position2D, Position2D> *came_from = nullptr, std::vector<Position2D> *path = nullptr) override;
 };
 
 

@@ -31,7 +31,7 @@ int SquareGridMapWithWeight::cost(Position2D from_node_,Position2D to_node_){
 }
 
 void SquareGridMapWithWeight::drawWith(Position2D *start, Position2D *goal,
-                                       std::unordered_map<Position2D, Position2D, PositionHash> *came_from,
+                                       std::unordered_map<Position2D, Position2D> *came_from,
                                        std::vector<Position2D> *path) {
     //draw the map with start, goal, came_from and path
     for (int y = 0; y < height; ++y) {

@@ -5,20 +5,10 @@
 #ifndef PATH_FINDING_SQUAREGRIDMAP_H
 #define PATH_FINDING_SQUAREGRIDMAP_H
 
+#include "Position2D.h"
+
 #include <array>
 #include <vector>
-#include <unordered_map>
-#include <unordered_set>
-
-/*helper class and some global function used for map nodes location*/
-struct Position2D
-{
-    int x, y;
-};
-
-bool operator == (Position2D a, Position2D b);
-bool operator != (Position2D a, Position2D b);
-bool operator < (Position2D a, Position2D b);
 
 enum Status{
     FREE,
@@ -26,20 +16,12 @@ enum Status{
     FOREST
 };
 
-/*hash function object used for unordered_map*/
-class PositionHash{
-public:
-    std::size_t operator()(const Position2D& pos) const{
-        return std::hash<int>()(pos.x ^ std::hash<int>()(pos.y));
-    }
-};
-
 /*implications of square grid map*/
 class SquareGridMap {
 protected:
     static std::array<Position2D, 4> DIRS;
     int width, height;
-    std::unordered_map<Position2D, Status, PositionHash> nodes;
+    std::unordered_map<Position2D, Status> nodes;
 
 public:
     SquareGridMap(int width_, int height_);
@@ -64,10 +46,10 @@ public:
 
     // draw the map
     virtual void drawWith(Position2D *start = nullptr, Position2D *goal = nullptr,
-                  std::unordered_map<Position2D, Position2D, PositionHash> *came_from = nullptr,
+                  std::unordered_map<Position2D, Position2D> *came_from = nullptr,
                   std::vector<Position2D> *path = nullptr);
 
     std::vector<Position2D> reconstructPath(Position2D &start, Position2D &goal,
-                                            std::unordered_map<Position2D, Position2D, PositionHash> &came_from);
+                                            std::unordered_map<Position2D, Position2D> &came_from);
 };
 #endif // PATH_FINDING_SQUAREGRIDMAP_H

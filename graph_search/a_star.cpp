@@ -11,16 +11,16 @@ int heuristic1(Position2D a,Position2D b){
     return std::abs(a.x-b.x)+std::abs(a.y-b.y);
 }
 
-std::unordered_map<Position2D,Position2D,PositionHash>
+std::unordered_map<Position2D,Position2D>
 a_star(SquareGridMapWithWeight &map,Position2D &start,Position2D& goal){
 
     Priority_Queue<Position2D,int> frontiers;
     frontiers.put(start,0);
 
-    std::unordered_map<Position2D,Position2D,PositionHash> came_from;
+    std::unordered_map<Position2D,Position2D> came_from;
     came_from[start]=start;
 
-    std::unordered_map<Position2D,int,PositionHash> cost_so_far;
+    std::unordered_map<Position2D,int> cost_so_far;
     cost_so_far[start]=0;
 
     while(!frontiers.empty()){

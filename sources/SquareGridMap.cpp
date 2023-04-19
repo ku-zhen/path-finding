@@ -1,21 +1,13 @@
 //
 // Created by ku-zhen on 2023/4/16.
 //
+#include "../headers/Position2D.h"
 #include "../headers/SquareGridMap.h"
+
+#include <unordered_map>
+#include <unordered_set>
 #include <iostream>
 #include <algorithm>
-
-bool operator == (Position2D a, Position2D b) {
-    return (a.x==b.x)&&(a.y==b.y);
-}
-
-bool operator != (Position2D a, Position2D b) {
-    return !(a==b);
-}
-
-bool operator < (Position2D a, Position2D b) {
-    return std::tie(a.x, a.y) < std::tie(b.x, b.y);
-}
 
 std::array<Position2D, 4> SquareGridMap::DIRS = {
         Position2D{1, 0}, Position2D{0, 1},
@@ -85,7 +77,7 @@ std::vector<Position2D> SquareGridMap::neighbors(Position2D pos){
 }
 
 void SquareGridMap::drawWith(Position2D *start,Position2D *goal,
-                             std::unordered_map<Position2D,Position2D,PositionHash> *came_from,std::vector<Position2D> *path){
+                             std::unordered_map<Position2D,Position2D> *came_from,std::vector<Position2D> *path){
     //draw the map with start, goal, came_from and path
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
@@ -123,7 +115,7 @@ void SquareGridMap::drawWith(Position2D *start,Position2D *goal,
 }
 
 std::vector<Position2D> SquareGridMap::reconstructPath(Position2D &start, Position2D &goal,
-                                        std::unordered_map<Position2D,Position2D,PositionHash> &came_from){
+                                        std::unordered_map<Position2D,Position2D> &came_from){
     std::vector<Position2D> path;
     if(came_from.find(goal)==came_from.end()){
         return path;
